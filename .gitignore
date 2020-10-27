@@ -1,0 +1,10 @@
+hdf5_ds/*
+!hdf5_ds/.keep
+*.pyc
+venv/
+runs/
+__pycache__/
+data/*
+reconstructions/*
+!reconstructions/.keep
+tags/fs_sound_inf_10_sec_07_05_19.csv
