@@ -1,6 +1,6 @@
 # Learning Contextual Tag Embeddings for Cross-Modal Alignment of Audio and Tags
 
-This is the repository for the method presented in the paper: "Learning Contextual Tag Embeddings for Cross-Modal Alignment of Audio and Tags" by X. Favory, [K. Drossos](https://kdrossos.net), [T. Virtanen](https://tutcris.tut.fi/portal/en/persons/tuomas-virtanen(210e58bb-c224-40a9-bf6c-5b786297e841).html), and X. Serra. (arXiv soon)
+This is the repository for the method presented in the paper: "Learning Contextual Tag Embeddings for Cross-Modal Alignment of Audio and Tags" by X. Favory, [K. Drossos](https://kdrossos.net), [T. Virtanen](https://tutcris.tut.fi/portal/en/persons/tuomas-virtanen(210e58bb-c224-40a9-bf6c-5b786297e841).html), and X. Serra. ([arXiv](https://arxiv.org/abs/2010.14171))
 
 
 <p align="center">
