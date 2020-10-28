@@ -70,6 +70,9 @@ Here is a simple example to extract embedding chunks given an audio file:
 from encode import return_loaded_model, extract_audio_embedding_chunks
 from models_t1000_att import AudioEncoder
 
-model = return_loaded_model(AudioEncoder, 'saved_models/ae_w2v_128_selfatt_c_4h/audio_encoder_epoch_200.pt')
+model = return_loaded_model(
+    lambda: AudioEncoder(128),
+    'saved_models/ae_w2v_128_selfatt_c_4h/audio_encoder_epoch_200.pt'
+)
 embedding, _ = extract_audio_embedding_chunks(model, '<path/to/audio/file>')
 ```
