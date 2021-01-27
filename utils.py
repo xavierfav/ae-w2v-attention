@@ -6,6 +6,8 @@ import functools
 import torch
 from torch.nn.functional import cosine_similarity
 
+from correloss import corre_loss
+
 
 def logme(f):
     @functools.wraps(f)
@@ -131,6 +133,19 @@ def contrastive_loss(z_audio, z_tag, t=1):
     s = embeddings_to_cosine_similarity_matrix(z)
     N = int(s.shape[0]/2)
     s = torch.exp(s/t)
+    try:
+        s = s * (1 - torch.eye(len(s), len(s)).cuda())
+        # s[range(len(s)), range(len(s))] = torch.zeros((len(s),)).cuda()
+    except AssertionError:
+        s = s * (1 - torch.eye(len(s), len(s)))
+    denom = s.sum(dim=-1)
+    num = torch.cat((s[:N,N:].diag(), s[N:,:N].diag()), dim=0)
+    return torch.log((num / denom) + 1e-5).neg().mean()
+
+
+def contrastive_corr_loss(z_audio, z_tag, t=1):
+    s = corre_loss(z_audio, z_tag)
+    N = int(s.shape[0]/2)
     try:
         s = s * (1 - torch.eye(len(s), len(s)).cuda())
         # s[range(len(s)), range(len(s))] = torch.zeros((len(s),)).cuda()
